@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Andy's Plants — Bedding &amp; Perennial Nursery, Rednal</title>
+<meta name="description" content="Family-run nursery in Rednal, Birmingham growing our own bedding plants and perennials, with free local delivery on orders of £10 and over.">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800&family=Karla:ital,wght@0,400;0,500;0,700;1,400&family=IBM+Plex+Mono:ital,wght@0,500;1,400&display=swap');
+
+  :root{
+    --bg:#F6F3E9;
+    --surface:#FFFFFE;
+    --surface-tint:#ECE5D2;
+    --ink:#22301C;
+    --ink-soft:#54604A;
+    --leaf:#3E6B3A;
+    --leaf-deep:#20381C;
+    --leaf-deep-2:#152713;
+    --accent:#B87A19;
+    --accent-ink:#3A2705;
+    --line:#DAD0B2;
+    --bark:#5B4632;
+    --shadow: 0 1px 0 rgba(34,48,28,0.06);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#141F17;
+      --surface:#1B2A20;
+      --surface-tint:#243523;
+      --ink:#EDE7D3;
+      --ink-soft:#B4BFA9;
+      --leaf:#82BA6E;
+      --leaf-deep:#0F1B10;
+      --leaf-deep-2:#0A130B;
+      --accent:#E4A63C;
+      --accent-ink:#2B1B03;
+      --line:#374A38;
+      --bark:#C7AE87;
+      --shadow: 0 1px 0 rgba(0,0,0,0.3);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#141F17;
+    --surface:#1B2A20;
+    --surface-tint:#243523;
+    --ink:#EDE7D3;
+    --ink-soft:#B4BFA9;
+    --leaf:#82BA6E;
+    --leaf-deep:#0F1B10;
+    --leaf-deep-2:#0A130B;
+    --accent:#E4A63C;
+    --accent-ink:#2B1B03;
+    --line:#374A38;
+    --bark:#C7AE87;
+    --shadow: 0 1px 0 rgba(0,0,0,0.3);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto;} *{animation-duration:0.001ms !important; transition-duration:0.001ms !important;} }
+
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Karla', ui-sans-serif, system-ui, sans-serif;
+    font-size:16px;
+    line-height:1.6;
+  }
+  img{max-width:100%;}
+  h1,h2,h3{
+    font-family:'Big Shoulders Display', 'Arial Narrow', sans-serif;
+    text-transform:uppercase;
+    letter-spacing:0.01em;
+    font-weight:800;
+    line-height:0.92;
+    margin:0;
+    text-wrap:balance;
+    color:var(--ink);
+  }
+  p{margin:0;}
+  a{color:inherit;}
+  .mono{font-family:'IBM Plex Mono', ui-monospace, monospace;}
+  .eyebrow{
+    font-family:'IBM Plex Mono', ui-monospace, monospace;
+    font-size:0.72rem;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    color:var(--leaf);
+  }
+
+  .wrap{max-width:1160px; margin:0 auto; padding-left:24px; padding-right:24px;}
+  section{padding:88px 0;}
+  @media (max-width:720px){ section{padding:56px 0;} }
+
+  :focus-visible{ outline:3px solid var(--accent); outline-offset:3px; }
+
+  /* ---------- Buttons ---------- */
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.82rem; letter-spacing:0.04em; text-transform:uppercase;
+    padding:13px 22px;
+    border-radius:3px;
+    border:1.5px solid transparent;
+    cursor:pointer;
+    text-decoration:none;
+    transition:transform .15s ease, background .15s ease, border-color .15s ease;
+  }
+  .btn:active{ transform:translateY(1px); }
+  .btn-primary{ background:var(--accent); color:var(--accent-ink); border-color:var(--accent); font-weight:700;}
+  .btn-primary:hover{ filter:brightness(1.06); }
+  .btn-ghost{ background:transparent; color:var(--bg); border-color:rgba(246,243,233,0.5); }
+  .btn-ghost:hover{ border-color:var(--bg); }
+  .btn-line{ background:transparent; color:var(--leaf); border-color:var(--leaf); font-weight:700;}
+  .btn-line:hover{ background:var(--leaf); color:var(--bg); }
+
+  /* ---------- Header ---------- */
+  header{
+    position:sticky; top:0; z-index:40;
+    background:var(--bg);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:16px 24px; max-width:1160px; margin:0 auto;
+  }
+  .brand{ display:flex; align-items:center; gap:10px; text-decoration:none; }
+  .brand-mark{ width:30px; height:30px; flex:none; }
+  .brand-name{
+    font-family:'Big Shoulders Display', sans-serif;
+    font-weight:800; text-transform:uppercase; letter-spacing:0.01em;
+    font-size:1.28rem; color:var(--ink);
+  }
+  .navlinks{ display:flex; gap:28px; list-style:none; margin:0; padding:0; }
+  .navlinks a{
+    text-decoration:none; color:var(--ink-soft); font-weight:700;
+    font-size:0.92rem;
+  }
+  .navlinks a:hover{ color:var(--leaf); }
+  .nav-cta{ display:flex; align-items:center; gap:16px; }
+  .nav-cta .btn{ background:var(--leaf); color:var(--bg); border-color:var(--leaf); }
+  @media (max-width:820px){ .navlinks{ display:none; } }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    background:linear-gradient(180deg, var(--leaf-deep) 0%, var(--leaf-deep-2) 100%);
+    color:#F6F3E9;
+    overflow:hidden;
+    position:relative;
+  }
+  .hero-inner{
+    max-width:1160px; margin:0 auto; padding:64px 24px 0;
+    display:grid; grid-template-columns:1.1fr 0.9fr; gap:40px; align-items:end;
+  }
+  @media (max-width:900px){ .hero-inner{ grid-template-columns:1fr; padding-top:44px; } }
+  .hero-copy .eyebrow{ color:#BFE0AE; }
+  .hero h1{
+    color:#FBF9EF;
+    font-size:clamp(2.6rem, 6.4vw, 5rem);
+    margin-top:14px;
+  }
+  .hero-sub{ max-width:46ch; margin-top:20px; color:#D8E4CB; font-size:1.05rem; }
+  .hero-ctas{ display:flex; gap:14px; margin-top:32px; flex-wrap:wrap; }
+  .hero-art{ align-self:end; }
+  .hero-stats{ display:flex; gap:0; margin-top:56px; border-top:1px solid rgba(246,243,233,0.22); }
+  .hero-stats div{ flex:1; padding:18px 20px; border-right:1px solid rgba(246,243,233,0.22); }
+  .hero-stats div:last-child{ border-right:none; }
+  .hero-stats b{ display:block; font-family:'Big Shoulders Display', sans-serif; font-size:1.9rem; color:var(--accent); }
+  .hero-stats span{ font-size:0.78rem; color:#C9D6BB; }
+  @media (max-width:600px){
+    .hero-stats{ flex-wrap:wrap; }
+    .hero-stats div{ flex:1 1 50%; border-right:none; border-bottom:1px solid rgba(246,243,233,0.22); }
+  }
+
+  /* ---------- About ---------- */
+  .about{ display:grid; grid-template-columns:0.85fr 1.15fr; gap:64px; align-items:start; }
+  @media (max-width:820px){ .about{ grid-template-columns:1fr; gap:36px; } }
+  .about h2{ font-size:clamp(2rem, 4vw, 2.7rem); }
+  .about-body p{ max-width:60ch; color:var(--ink-soft); margin-top:16px; }
+  .about-body p:first-child{ margin-top:0; }
+  .photo-pin{
+    display:inline-block; background:var(--surface);
+    border:1px solid var(--line); border-radius:2px;
+    padding:8px 8px 30px; margin-top:24px;
+    box-shadow:0 14px 26px -14px rgba(21,39,19,0.35);
+    transform:rotate(-2deg);
+  }
+  .photo-pin img{ display:block; width:200px; height:200px; object-fit:cover; border-radius:1px; filter:saturate(1.05); }
+  .photo-pin figcaption{ font-family:'IBM Plex Mono', monospace; font-size:0.7rem; color:var(--ink-soft); text-align:center; margin-top:10px; }
+  .stat-grid{ display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--line); border:1px solid var(--line); margin-top:28px; }
+  .stat-grid .stat{ background:var(--surface); padding:20px; }
+  .stat b{ display:block; font-family:'Big Shoulders Display', sans-serif; font-size:2.1rem; color:var(--leaf); }
+  .stat span{ font-size:0.8rem; color:var(--ink-soft); }
+
+  /* ---------- Plants ---------- */
+  .section-head{ display:flex; justify-content:space-between; align-items:flex-end; gap:24px; margin-bottom:36px; flex-wrap:wrap; }
+  .section-head h2{ font-size:clamp(2rem, 4vw, 2.7rem); }
+  .section-head p{ color:var(--ink-soft); max-width:46ch; }
+
+  .plant-grid{ display:grid; grid-template-columns:repeat(4, 1fr); gap:20px; }
+  @media (max-width:980px){ .plant-grid{ grid-template-columns:repeat(2, 1fr); } }
+  @media (max-width:560px){ .plant-grid{ grid-template-columns:1fr; } }
+
+  .plant-card{ background:var(--surface); border:1px solid var(--line); border-radius:5px; position:relative; display:flex; flex-direction:column; box-shadow:var(--shadow); }
+  .plant-card::before{ content:""; position:absolute; top:-7px; left:50%; transform:translateX(-50%); width:14px; height:14px; border-radius:50%; background:var(--bg); border:1px solid var(--line); }
+  .plant-art{ background:var(--surface-tint); border-bottom:1px solid var(--line); aspect-ratio:4/3; display:flex; align-items:center; justify-content:center; border-radius:5px 5px 0 0; overflow:hidden; }
+  .plant-art svg{ width:62%; height:62%; }
+  .plant-art img{ width:100%; height:100%; object-fit:cover; }
+  .plant-body{ padding:16px 16px 18px; display:flex; flex-direction:column; gap:10px; flex:1; }
+  .plant-type{ font-family:'IBM Plex Mono', monospace; font-size:0.66rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--leaf); font-weight:600; }
+  .plant-name{ font-family:'Big Shoulders Display', sans-serif; font-size:1.4rem; font-weight:700; text-transform:none; letter-spacing:0; }
+  .plant-latin{ font-family:'IBM Plex Mono', monospace; font-style:italic; font-size:0.78rem; color:var(--ink-soft); }
+  .plant-meta{ display:flex; justify-content:space-between; align-items:center; margin-top:auto; padding-top:6px; }
+  .plant-size{ font-size:0.78rem; color:var(--ink-soft); }
+  .plant-price{ font-family:'IBM Plex Mono', monospace; font-weight:600; font-size:0.95rem; background:var(--surface-tint); border:1px dashed var(--bark); color:var(--ink); padding:2px 8px; border-radius:3px; }
+  .plant-enquire{ width:100%; margin-top:4px; background:transparent; border:1.5px solid var(--leaf); color:var(--leaf); font-family:'IBM Plex Mono', monospace; text-transform:uppercase; letter-spacing:0.04em; font-size:0.76rem; font-weight:700; padding:10px; border-radius:3px; cursor:pointer; transition:background .15s ease, color .15s ease; }
+  .plant-enquire:hover{ background:var(--leaf); color:var(--bg); }
+
+  /* ---------- Delivery ---------- */
+  .delivery{ background:var(--surface-tint); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+  .delivery-grid{ display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--line); border:1px solid var(--line); margin-top:36px; }
+  @media (max-width:700px){ .delivery-grid{ grid-template-columns:1fr; } }
+  .delivery-card{ background:var(--surface); padding:28px; }
+  .delivery-card h3{ font-size:1.3rem; color:var(--leaf); }
+  .delivery-card .amount{ font-family:'Big Shoulders Display', sans-serif; font-size:2.4rem; margin-top:10px; }
+  .delivery-card p{ margin-top:12px; color:var(--ink-soft); font-size:0.92rem; }
+  .delivery-note{ margin-top:24px; padding:16px 20px; border:1px dashed var(--bark); border-radius:4px; font-family:'IBM Plex Mono', monospace; font-size:0.85rem; color:var(--ink-soft); display:flex; gap:10px; align-items:flex-start; }
+
+  /* ---------- Contact ---------- */
+  .contact-grid{ display:grid; grid-template-columns:1fr 0.85fr; gap:56px; }
+  @media (max-width:900px){ .contact-grid{ grid-template-columns:1fr; gap:40px; } }
+  .field{ display:flex; flex-direction:column; gap:6px; margin-bottom:18px; }
+  .field label{ font-size:0.8rem; font-weight:700; color:var(--ink-soft); }
+  .field input, .field textarea{ font-family:'Karla', sans-serif; font-size:0.98rem; padding:12px 14px; border:1px solid var(--line); border-radius:3px; background:var(--surface); color:var(--ink); }
+  .field input:focus, .field textarea:focus{ border-color:var(--leaf); }
+  .field textarea{ resize:vertical; min-height:110px; }
+  .form-note{ font-size:0.8rem; color:var(--ink-soft); margin-top:10px; min-height:1.2em; }
+  .contact-side{ display:flex; flex-direction:column; gap:22px; }
+  .contact-item{ display:flex; gap:14px; align-items:flex-start; }
+  .contact-item svg{ flex:none; width:20px; height:20px; margin-top:2px; color:var(--leaf); }
+  .contact-item b{ display:block; font-size:0.98rem; }
+  .contact-item span{ color:var(--ink-soft); font-size:0.92rem; }
+  .social-row{ display:flex; gap:10px; }
+  .social-row a{ width:38px; height:38px; border:1px solid var(--line); border-radius:50%; display:flex; align-items:center; justify-content:center; text-decoration:none; transition:background .15s ease, border-color .15s ease; }
+  .social-row a:hover{ background:var(--leaf); border-color:var(--leaf); }
+  .social-row a:hover svg{ color:var(--bg); }
+  .social-row svg{ width:17px; height:17px; color:var(--ink-soft); }
+
+  /* ---------- Footer ---------- */
+  footer{ background:var(--leaf-deep-2); color:#DDE6D2; padding:56px 0 28px; }
+  .foot-grid{ display:grid; grid-template-columns:1.3fr 1fr 1fr; gap:40px; }
+  @media (max-width:760px){ .foot-grid{ grid-template-columns:1fr; gap:32px; } }
+  .foot-brand .brand-name{ color:#F6F3E9; }
+  .foot-brand p{ margin-top:14px; color:#AEBBA0; max-width:34ch; font-size:0.92rem; }
+  footer h4{ font-family:'IBM Plex Mono', monospace; font-size:0.72rem; letter-spacing:0.14em; text-transform:uppercase; color:#8FA07F; margin-bottom:14px; }
+  footer .navlinks{ display:flex; flex-direction:column; gap:10px; }
+  footer .navlinks a{ color:#DDE6D2; font-weight:500; font-size:0.92rem; }
+  footer .navlinks a:hover{ color:var(--accent); }
+  footer .navlinks li{ list-style:none; }
+  .foot-bottom{ margin-top:48px; padding-top:20px; border-top:1px solid rgba(221,230,210,0.14); display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; font-size:0.8rem; color:#8FA07F; }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="nav">
+    <a class="brand" href="#home">
+      <svg class="brand-mark" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M16 29V15" stroke="#3E6B3A" stroke-width="2" stroke-linecap="round"/>
+        <path d="M16 15C16 15 8 15 6 8C6 8 16 6 16 15Z" fill="#82BA6E"/>
+        <path d="M16 12C16 12 24 10 26 4C26 4 16 3 16 12Z" fill="#3E6B3A"/>
+      </svg>
+      <span class="brand-name">Andy's Plants</span>
+    </a>
+    <ul class="navlinks">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#plants">Our Plants</a></li>
+      <li><a href="#delivery">Delivery</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a class="btn" href="#contact">Contact Us</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+  <section class="hero" id="home">
+    <div class="hero-inner">
+      <div class="hero-copy">
+        <span class="eyebrow">Rednal, Birmingham</span>
+        <h1>Locally Grown,<br>Delivered Fresh</h1>
+        <p class="hero-sub">We're a small, family-run nursery growing our own bedding and perennial plants right here in Rednal — no wholesalers, no delivery lorries, just plants raised on-site and taken straight to your door.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="#plants">View Our Plants</a>
+          <a class="btn btn-ghost" href="#contact">Contact Us</a>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <svg viewBox="0 0 380 260" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+          <rect x="0" y="190" width="380" height="70" fill="#0F1B10"/>
+          <path d="M20 190 L60 60 L100 190 Z" fill="#152713" stroke="#3E6B3A" stroke-width="1"/>
+          <path d="M100 190 L150 40 L200 190 Z" fill="#1C3319" stroke="#3E6B3A" stroke-width="1"/>
+          <path d="M200 190 L245 70 L290 190 Z" fill="#152713" stroke="#3E6B3A" stroke-width="1"/>
+          <path d="M60 60 L60 190 M150 40 L150 190 M245 70 L245 190" stroke="#3E6B3A" stroke-width="1" opacity="0.5"/>
+          <g><rect x="30" y="205" width="22" height="20" rx="2" fill="#5B4632"/><ellipse cx="41" cy="200" rx="16" ry="10" fill="#82BA6E"/></g>
+          <g><rect x="80" y="212" width="26" height="24" rx="2" fill="#5B4632"/><ellipse cx="93" cy="206" rx="19" ry="12" fill="#B87A19"/></g>
+          <g><rect x="130" y="200" width="20" height="18" rx="2" fill="#5B4632"/><ellipse cx="140" cy="195" rx="14" ry="9" fill="#82BA6E"/></g>
+          <g><rect x="175" y="214" width="30" height="26" rx="2" fill="#5B4632"/><ellipse cx="190" cy="207" rx="21" ry="13" fill="#3E6B3A"/></g>
+          <g><rect x="230" y="206" width="22" height="20" rx="2" fill="#5B4632"/><ellipse cx="241" cy="200" rx="16" ry="10" fill="#82BA6E"/></g>
+          <g><rect x="270" y="215" width="26" height="24" rx="2" fill="#5B4632"/><ellipse cx="283" cy="209" rx="19" ry="12" fill="#B87A19"/></g>
+          <g><rect x="315" y="203" width="22" height="20" rx="2" fill="#5B4632"/><ellipse cx="326" cy="197" rx="16" ry="10" fill="#3E6B3A"/></g>
+        </svg>
+      </div>
+    </div>
+    <div class="hero-stats wrap">
+      <div><b>100%</b><span>grown on our own site</span></div>
+      <div><b>&pound;10</b><span>free delivery threshold</span></div>
+      <div><b>439</b><span>followers on Facebook</span></div>
+      <div><b>3</b><span>reviews on Facebook</span></div>
+    </div>
+  </section>
+
+  <section id="about-section" style="padding-top:96px;">
+    <div class="wrap about">
+      <div>
+        <span class="eyebrow">Our Story</span>
+        <h2 style="margin-top:12px;">Family-Run.<br>Grown, Not Bought In.</h2>
+        <figure class="photo-pin">
+          <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/7QCEUGhvdG9zaG9wIDMuMAA4QklNBAQAAAAAAGgcAigAYkZCTUQwYTAwMGFhYTAxMDAwMDVmMDQwMDAwMTAwNzAwMDAxZDA4MDAwMGYwMDgwMDAwNTEwYTAwMDA2MzEwMDAwMGYwMTAwMDAwNmExMjAwMDA1YjEzMDAwMGQzMWMwMDAwAP/bAIQABQYGCwgLCwsLCw0LCwsNDg4NDQ4ODw0ODg4NDxAQEBEREBAQEA8TEhMPEBETFBQTERMWFhYTFhUVFhkWGRYWEgEFBQUKBwoICQkICwgKCAsKCgkJCgoMCQoJCgkMDQsKCwsKCw0MCwsICwsMDAwNDQwMDQoLCg0MDQ0MExQTExOc/8IAEQgAzgDOAwEiAAIRAQMRAf/EAHUAAAIDAQEBAAAAAAAAAAAAAAEDAAIEBQYHEAACAgAFAQUGBQMFAQAAAAAAAQIRAxASITEgBBMwQVEiMkBhcYGRocHR8GKx8RRCUGDhghEAAgEDAgUFAQEBAAAAAAAAAREAITFBUWEQcYGR8KGxwdHhIPEw/9oADAMBAAIAAwAAAAH6JatmUvdbJHsUwGVIkkJkZDUQY9uUy7UuMlWAREtDDeGsrRlTOd81+sZTKXF5IbyS1qCS8XIG3Q4S4oYWLroEzOYgxovQASCEwSQggylXEjHbw3ZqfQsx7jKxlRE1akiXTYx1lMEG7FtBOV+OTVFOkTLUMF6MEItWQ0tQzx+HfnpEdfLCPTavI7jO8rnc+TuzG8h1+ZygfQ35NhO7jxdEzS7HaHRVckvFSTRVZkdSST587zr8ejv6/K9ZlOmPNIeph4q6s7zPO2Cus7gtB63Z8b07Tt+u+Zdcj1OTjcMH2PX+ZbaH6Jn849F/X35h2r6deYTPlLkZudv6aa53ToZVU2Z7Z6BUbp54Xo3HJoXkpq54J1buSy56VeXSieieea29N3PCdZOn3bPOa9uTr05ymT5ylDsurryzhfKl5cnk57Kq+xssO03y0qdikuiCEtNqGljlbfKwbH9Pj9BaOn0Od6Zefg5u15tx4/X5fqqvyVdRUrfBay+ano89rDnlbOqxLDazUuqNKWqXno/Ha+t+RlitfV5TQj13d+e+3zrxef6KbDlsfzm6OwngLNeyzg9gF3E7eQVyna1hwDcu1M0fUPz21QXxzZeLvuc3JXgaiplX9Sjonm9TBelvHUpbaLXtspE77vVbPqc9lgnZDOTRlZWoaIZLARfX5e0X5I9nVLvNO9AV35ef0CZTznP9pw7jyenVbRlrptrFhoLSYytjLSCTn5OvyjWGXEqL1koa2F+z531oxbc/CVy3o39Xzu3Tn9FlyrS9Ghj7pDZcmWF4CQZDKySYtqoMRDQKU0Wsedcsrb0njPWeZzaeTTpL15MFtCrhjcTwfQ3YxDEF9TKS0sIQCLApkdbK8jLVy5NJtAc6dsqdfn+qKM5I6lWL56+nSDir7vKh/9oACAEBAAEFAuheDLdx8LGwViLGwXhvxVu/Pwp4an4F9UUT4Xw83SSyXh89FFdb5yl4feU4dpZDFjLofVH3huiM1iKOT8CSjccNat0YeKRxMr6LLMB7Qx9Tk9uz7R4fgze8Pe3GkJuIu0M76Ji9oYsRMsxMTSd9cez4opqD7/2IVTNRZZfVGVkX7WJR5F0sfF373ZY7vvma2avZw8QxcVM1uRBqsLFF2tGF2khjqROWkjitikWWWLFO83vU+/Vd9Jt49E2Jmos1DkajDkzWYeM0Sx9MbNRHG0EMfUKVsvLkizgs1GsZyXlLojOjUQm4kp2OWUWYOIlJ0msVM1o1o1olDeaaadDY5j5ZJ2J5cCZeaZqNZZZGdGHi2RxImqJqiOcRl2YPtGk02TTy1FlkGSdmqjWaqLGyxSLyw5GvdwehzpqTZRRHl49ie8pEskujVQ/aHeS3FCyqHIsgKDZhOk8AnyjDwtShDQd3ESiT002iW4tiyy8lxAkarEyTHlhT0uHbCMLi8Sm2I1xSc1EWOjQ2dwhxw4k5pl5MvJRKJM4yeVCQjsr1LFbFA02o4DFBRO9jEl2lsw/bO1bZUUUULYfRuYWFqH2Vncu0tI2YUqj3uXfJEu0McrLy7OjtG8qQolDyoo0mkoojiqrtSesjgMUKIUl3aJF9CgQ9koUBRMSPQis8OGqM8Noi2hSI2y6SlviMb3yURREUJZtdC6MKdHfo71GpZVZpih4cWdow4xSiKIhRFErpxM1myHvdqXswg5kcGMFi4qYpGuyFHaVWVCiJdbV5orPD97GhrXs4axsfXlZGQpGLOyhLwp5IrPD97EnpMXEc30KRqsrw5KxCEM4ML3sfiUTQd2aRrJZ312XlLZrNohtLFH0OI8Poo2KRRRRpY85EM6KKKNJoNJpNJPn/2gAIAQMAAT8B8S/+Ilh7ksN81t6lDimiiMSihIir8ys1JU0+fJmLHmntttZJLy/wSg4/c/0t07onhuJh4TkSja2/2lEYmJCh5SQtuSzVrS242IwlS8juE1vbu/sVp1x1EZpXH/BicswcRaVf+07ROtvuRRxk8Tyqx4dt0QWl8ksSS87MPG9dvoSwu8a0/jxudy1Kn+RHAW9rV5VwTw0k1E7l+exdXk0ly/wNaXC/Uw5W/UxfeYp7ZQxnFUd/8jvWd5KRPEtVsihbF5R26oK2dx/UQwEnvUkPs/PG90dy4rhfUoroecOUTw9Ur4Ri4vlHg1EcW00+fJ+DDlGPJ8FFETSKDY4ldKMR6nmkf//aAAgBAgABPwHxK+LUs78KEkiEhMaJbEX8xebfApEpUa/uSm7VOrfu2LJGEi15/lv9x4nDr/0lLd/M1OO5yKeeLF+RhPbd2WUJrjg7y37Pkvy++dZ3libinpFiatv0JyotvyNP9T+gvuUUMXI0LYkPCTZh+yJt+X4iw/Vk40vQhLZF9Mpyv0HvWqVfIjKBaXGTkXfVLg7/APpZLET8qNUdtmRxI3SNRXXPhmHi6Y1yzCwvOXJpRPCpqS4814CJ8P6HZoqr8yyyRqNRqL6WYcdKzs//2gAIAQEABj8C8WvDp/4Kf+fGfibq/wDoK8b0+aPKS/M/fwvlnt4bvLfc5r5M3TX9vAbf8oa9PPJePsz2l+Byez5cnzzfyKv6E/09S/XyFXHiI9P59RH3y+WV2fTL7is9n5FeRt5EnLi9j8SWp7WP5F9a8jfLkfgbeWS/llJU/wB8/qb8FL16dzmy8vr1vK+is/5sXHLk5OSouymq/U4z9PgKPTLk5L5PoMa9Mq+C1HC/M4zi4/RlZfL4G6ye41/fp9frnt108vTpW115HtR/DYbul5M3+1G9rKk/wN8vPL1OK619evbJ69WmNcVt9mVWye2xukfyz0Of0RsehuJeJv8Aif2eX7ZYn/z+bz/Y226PofZeJ9j6G15/WS/JP9zf1638/EmcZehyX8N735nvHl+R5fkcI91G8UKlXh31r6n3Nsqits//AEXwS+pXzPQ+XSvl8EvqX8Sunj4VfAc/B//aAAgBAQEBPyHiP7CLgCkYFT2hMcqduK4gcFFOx85Ladj5wGog4iD+hxNjFhGuYdOJiig/gwUhAC68BFFAY4+B8HwJQiB1MDC8J/8AJRQf04DHwEaPl3iABCI4JG9OXA/2oRARYXyrFwA/oB4CGUKhzBDKEfPHxPECLgIYDqVDU+Jmbhr6egmUR0oP1/AQxxwGCMS0Ch3/ADgoTpCA2VEt1VK3p/IfwYZYVO3rCCGnrSDGTt+QwS5zTo/gwh7peCeAngDKIaIckGXfslD+RUKEJLQwbJBdTB3R7cCeIMccBpFDEgwvuCAOIyzCAGNfeDq97XGcQQer9INJ9dIIxoNzNAIcTsa4EMPRj2g0gATm3PZQC5TG1X5rLQJhWBgaEQ0DQIZa6QwFYFIdIG4xhx8HHArla+07kIoit+EXBAYCxXChSsqPmF03S3mLgFscxnDuQTzFBEJEFQbAxwuUg/2Vgy970v8AMIV62dIo4CZcwRY4qGK8xFwZYkBZ0pSBKwGqpHOEIIAuHRfUrEDdBaPZFQfU0K6L5qHoW0hC4A5RnEMGPSkGYC1sK4lKManH3CJBUs+0pnjSEJCTcGtxqozNciKvD1QU+KkbMtLSvSCraONSWKK+Yz3f5FwWZJVyxrRRwIapp1BEaEQ+wG7vBXH7NKco6EqVziAYkOjrAUFpwOA9UxgwcrxxgxZ5ekCXNXT82gYt0hRhsLeFZGsNBLqNYFMYJpaEBiP1laAoCRfMosg4zcqzTodxL/OWbCGQ3Om8C5esASPGYkEXoIMRnUZnzvObTvNp3EOm7ykIpsTajWLVg81Nb0DUKVjI0pVW95Y0lFXjgNV3+Yij4lyLICINTGWn+x1UY1cCK9YUo3R94VntBSosrRPTheEihrKaZ9o65zC5iyIo1qfRwagpsfqUyxBogjArh2P1NwAdC1zmmxB3yrb+mgPaGvARebfsrJsn/e8Cos6XrCacpR+SqsFPlYgKNfEAYVlzlBJOFAN5/jFClM6xteABjrCWykLIbG96B35Qxqgev2jQpff7gTXuIPDiOgwAjkvWxnJGMC439IE1GjZdu0SwEdBen7ALO9dowMRgv5ziUCjhYNoAJjwwWrCly8pAenhhSAgoGbHAVHBFYjXb3i0Hf/OUESVxLpQ35xAAbGxV9N4ErBswEBe7/wBhaPf8cU7s+aQYmh1kvQUvHUUViwz2gFaV7jnDCfiEQSCh1DtAEaUFwXzmTU333hdSBrLSAQKLiSNOU/cErwNZaNNIjcYoAJcoQL03hqHVi7GAJ9iD8wRmm5gAHWowNWh3hyrUOpt6fsNVCTpULbSEloAU0UKcxKrJPofqVEvz0EWgCAlqrDRZgVgTEqcTEUudIQDA3QiM5dpcKOK/pCjRVz9znUMdUYFEQVW0DmncI3EKKk5gK3hsrmZWpXDFSUzVzfV4IqZGmpMfXavqZaB7jNdUF9IVDoz7DgDOI8P8Y6w1ic9kJpCAqk3PI5wgIK2tIIal0tV4ZZXciubwyALQa5PiHLBPtMQjoF7UesJw9RhriTz4HGklqj1gVoAVqxsJfhgbRcAPwzzaDxSckFDgAAnDsJfAsWV9ukcRMbiwXu5sbwVwCFfSMSMrpoIGYTcKYOvWGBckbcD4KEMfkIHvWCiJRc6xXpFtAEMKJwOQQKcoyqXIygMo4lWi5IfKGEilcR1Fq8oegt+QhqL4AQxi4Er4AEEYFNoq8LJnhaCIsq0OFYZh3E3SgLA7IShz2gMoE8v2XEd/uGRwnU/MIYrgdEQQIODgV7Iec9YEGeL0qI6HzDiD6EsAE5JlIA1Kp/ITWAqyVGGpNcsPmDAQ7m5cCgbjgEAi/hRTY8BpKIoTPQveLA3HlANGFzDmhQca844OA3IQQOqDhQIIP5ccGr1vANoFMzqhChnpUALSqLYGkPFwohgJAigH/BJRPKGBT9gMwHDAMu4lQc4CIYdJhW5dJonhbByMfA4444+BSDg6Q+8sFIAoRBmMJgmGEJUf4CZowAi8BBldY0IC4mxCA17xdTPJTcECAxy2AAe+FL8A0IG8I3vzlcIGJFpCBhkUU//aAAwDAQECAQMBAAAQ/R5+2DIQgond540kZrcCgriGMzmMmnsfUUMouiKBHDIfmU4EoY0oMgRkTgHbt9B4krQvCiJ8z8zk4gto2xSsMJOK1EzelWuj0O/uxwbFGoJLH9Apo8bPqTuroc+kG8lUIz19iLnpr3mR/LEXIr77jdkL0f49PTRtqdYE7EAfD//aAAgBAwEBPxD/AKUfw/7f9H/kuJP/ACOEJHWi6pdioEKqFaHKYAK6rwMyuD3W5SgycreB0DyvKaEOl+KQUl1OrFvmCF1iNX6m+PodmkIgEWc/DKIBaiyOdqy6kXPPykqOBcmgrK4DFBPM/doZOUhCLTFVZzZwYWKcy4yI8Ct/tQiRuGzmOqLEE87wgtiINUwLSqcwULZdNoO2q0ZXgmhhzqdz0iU6h3hIDRsobanGVCERWGG+PWNcrqE5wBVENYUzwJdgGFeJbWAqVmM9ba/IaiGQ01CotTmUG53Q0k4DkCzx2veV1KhO/IwgrSpkPs/eWjem8vuJlnb7Q2iNzVCjBuxiepXaFABA844UXDDxqucRazv5TaVSXe4sIU0bFrXc6mFtAonXvEK0mlV8ChEmPHwPFygGjm0fOseNotKq6A7O3aXGhU8Af2esHvK4oAMwGlq1jYM8lDWL+TwU9YPeHGqg9YShi/hMIX7QgK4COC4UkHQiVS38H//aAAgBAgEBPxDgYIeA4OPgP4LgYuDhPEQGOOOA8D/AhgMcAc2vxQRw/wDATQV95WNZQfC3/wAlE5S2kDJKrBHgHAoH0jp4AtjgXAyM0GAYIOp+yFJNEYhnklI5+DKmFy+sA8MLbFWsXXih2l8fikb6xw1GCkoImZylBSnr0gmB+yY8uhdDrg28A/ymADcqCECzgR+BSCKoVy4IcIcXBxhiUErN0sPWOSoIR6VSDgp5455iUNpDEIo7W85YFYbYvaEjhcIH8iB2jKQqkoQuvo0g0p4oGn9ljz/Yc9e9oFRq9IAgg6cdOAcFwrBGolAj4GP/2gAIAQEBAT8QEBg4jhMcBirApDBEESrDBS9e/wBVsOgXmN8M8CHCsPBkUMGCoG4+o+QsfY4BuPwGRcWPEIfC4+AgiQmGsNgi6BLhwyqxWpCurK68RhgQC4GHgBF8ALRSp0ggcAT+TCBwAuAISUBUzrBLuhtCEiDCo5veKb55i8UP9GEQnx1FxPECCYUCcDB0EjCqrKQJAU4LnVxS4ovzqQv4OOCKEQSCMFJdgnbgAjuEwRCIOBfhuGLXRz6e/FYxlJg0bBsNt33wI4AGP4BgwpTWvFBberuICHqQB7TQSgP4u1l0JluB4AkcA4hVCNAcjBrXRzloEpVCULlDEYQ9yjhUhkmI5NW+8BgRqCFCeCpwXT6VNfQYFByWDUVRpSe/Grv9IJulhMlh8aQoAcOAJutx1C34NUZDwCAEkoCpOglRVUvGnAmiFFg2IMWjiwrEoSbVxBiDJB3GMeXiD1BkyTgbD2hAhsL7oyHuxWEviHiDwAwcAKCBkoDN5AXgpBiDzofSCM9rKw52kAzTIyWthSwCoFy41V7EwoAgzIBFixTJIp30h0a0ruLCZvWK0aHU0wc1ETWW9jsTCNiIJ8vaFD3iZbIV+gE2k5gerN4LRq6oRoDSAK4uph9pWRAH2rWt4zAkIh6guCqB8EMCGQQIBcEGA3VVMbkfmPw8ywI6wgvcAN6D0E0wAbjXOD1R6xggTuwVe9LmEKrgrZA0JzA4Nad/gDZwsIRSBuluYavQAOnqZt3lQomis/SEB5k2t3pyiEZV5BekdlAJXN5PkS8aH0LmL4lAAWLulXzjet0ex9HKbnVg2Ntf2BLSCkmvst4TDoA5AC1OpXeLCE5HY45iD7beBKlWBT1IuuVpTOebsOPOsmMVv3YhzQLN7ho4CRhrk5YdReKIQ7nMOorKwYcqPz3gQYXA6WhAp7ABCga6UTpBVN0MWLALA3F/k9pOfIT3oppGIdNqWig9GRFa10AmNpJdaOWJU0tdnUqMF3OF6MBfCBpKQ3sBDxi8IwNqU31lcIrE3ge1xzpDDmF1gV7MdogQR732IuCwADpCcJwtAs9RA0Ms71701R0rcgKnm9YF9VSg3rZWOkrIqiue3ONjoQnmekpsI8eKGcAbvmKQbCunLviZhsdVnrCL7Od4Vwmpzy4DaARGuXeWAsLVAMDWUA56REnAUtypNecIdRJLAwAPAoIFggk1I+qAhajdyKu02kFqex2hladTV5pCQUpsRyIdvn3MFFACo0A0f5D+Ohn35vGU+V1VUVoYVwELBxCUVllFytI+gRpNIAgtiUBUgJqt2Q9HA6wsA7ioUKHu3CafMa005g+kGppNNJ1hl+rlDeA7/CBqkDcb7SnHRNGtLuGN3n7EurBC5MYIthWhWGpTsx0hEbuJCpAWrewgZgFEj+Iapse5louBIT7Yl70rAyl4FNZxgWgJBkC9SqduAN6twJPkXHtC4bRkgfAjINYdhOrQVaEDhREMj9fhWUfQFdVbUOmYF9oF0xTSAPegCks+L6w1cjdRhWCpmGZVq1pBcpUWhXItvmaSOoaBXUay+DVCYN/8GG2OgzVzSB6iIhXPzxwbHM1kV0PEHpXwbxE1VAh0D3REsF+TiAWgl+oFzKQVUGvnAmJBFzOaQS3hq0TlYVZFDK0aACqXR97wtIW0LwdRodoOQ00HdOYTSGA2B9oRA+CEQoWw9+0BZfO0Ih3V9JiGb27IUzbm/rKEv1f43JmiKeDKdA3W9tYU/c3t6RIsROMdYlEF8xKJq9r0CbYbw1lGzCOj2SqAkVPUloF0PYhrdFSw86SqVGMPQ2gNzZAQTHvLO0VzXyFFPpHH7oBdV/EOCpfbLhYdISuUrSzHpSF7BGmx1nUM6OUYYKIhAdXG46SQQ/Y5YUEQMO4ekULivT9ip9tlfWUNYYG+hPc/EM09EXEAVWhyNLbwKLeFD1s4uszCjkaMuG1AKh+R5XpN/wA11YeFAanxGz1yxG5ulWNfYJ9FBaOegfqF2rhVhkTYQTzUD7iD1gg9wYra3uQKSSiv6IQl9yn3C6DOZ1V9IQEhlkANz9ytUXV9i0D6uSopfUAbw50OxeCZTLKd5cCtDMVhNB+5oiINn7D1ydIJJgV3L7paJqlwMusMSmuE9xvBuwlp0jVEfBCnUTKc1XscWBcgtQuuz7Q2YdlvLSWu3H5qekQg83zJfRgU6QdD9IHN8Y17R+LawyZMOyN1Q0KW2gYrRB1baQsaIhYip0QsaqxoYatiUQIQsbNUMfIHQ7xhq6iJXeGkz9R0BsI14FGEre2ToEKwDG6CgG0f90jrR8ygADwrb0hN88OGKoJ39UGYPaBqkIZMWto5rADg+FDeUCChXmkIFEZ5H9h5fUTa3x+ICPhw651t9oVhZUanE2BY0mYH6YNcfUSGPgmoJtCY+iJ76C7jSKHbjw4Gjhta0UN/TMQfUhE4JesrmdsLwVggQ0hvFRAsB6J/cLcJa8pooLRLSLQaBNvKQbxOERR+0qLium0p28/yARqhFIAYMpcm9wgdpWVdelKBAAirqe+YFFQ91fiGf0UiBbxQoai8OZnoVbUOoh5chNV2coSMoyYuBZRSAxZ3miIIBGOAEfFmEEEpbW8p5xFvHyyYRRW1fiE7iAI8kdJrVwvjlPsh82gzvzzP9NmseUiOwlwWsplGiQtKDk9oGBQkgtFuPAAVXMCEyiV3BCMIR8Aj5dpyCLBKEMpgWC1EXKKdh4YFeffEILAQAFY5yKQfAzBtVdLaKlmpwbwqJDCnHzYQuhjaA9GkHkcnpDQBoAoDjrAWr1n0kMwWqadZse0Lhw144iIEfAZizDRuBEXXdEH5mEGeYv1WY1FXoKwELhPDZ6q3CUwRiJUk2AzE7oyfkzYhMt30sIZXNUwN4rKZM1V+03oLnWWuAiIKwG0EBEMHVEgNqANiRNx0LHrBEJP+xhsFtBhnzbzeagBcnQR2pDl/rfgMcC8MuTieQh4E8XAAgMctDwLhC5Y5zkMX8vmJz7fubost1iCMc7QmiG9Yvi2MatNN2n6E9zCcAMm1jBPcjClDlAv7AGsA6wyOD3QZZgftGGkPaBg7Ph3nVIMV1gZRMR1WMS3UFqDYgpAQTCJcxNYucCK4S2MQNaLTIMoPoA/UZj6j5mGg6wVyMawKuz7h1DuPuGyu8QiIHrpDBfQ6A7ZjQKbAy2geUCMbWVmfKs84cWdGTpCICgpClhKgcBLNpZGMRoESht7T/9k=" alt="A hanging basket of red and purple bedding plants on display at Andy's Plants">
+          <figcaption>One of our hanging baskets, ready to go</figcaption>
+        </figure>
+      </div>
+      <div class="about-body">
+        <p>Andy's Plants is a small, family-run nursery based in Rednal. We grow all of our own bedding and perennial plants ourselves rather than buying in stock from a wholesaler — so everything on our tables has been raised right here, by hand.</p>
+        <p>That means our range moves with the seasons: bright bedding and hanging baskets through spring and summer, hardy perennials that come back year after year, and always something new potted up out the back. Come and see what's ready, or send us a message and we'll tell you what's on the tables this week.</p>
+        <div class="stat-grid">
+          <div class="stat"><b>Small</b><span>Independent, family-run business</span></div>
+          <div class="stat"><b>Own</b><span>Bedding &amp; perennials grown on-site</span></div>
+          <div class="stat"><b>&pound;10+</b><span>Qualifies for free local delivery</span></div>
+          <div class="stat"><b>Rednal</b><span>Based in Birmingham, and delivering locally</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="plants">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">This Week's Tables</span>
+          <h2 style="margin-top:10px;">Our Plants</h2>
+        </div>
+        <p>A sample of what we grow — bedding plants, hanging baskets, and hardy perennials. What's actually in stock changes through the season, so message us to check before you visit.</p>
+      </div>
+
+      <div class="plant-grid">
+
+        <article class="plant-card">
+          <div class="plant-art">
+            <img src="data:image/jpeg;base64,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" alt="A ready-made hanging basket of mixed red and purple bedding plants">
+          </div>
+          <div class="plant-body">
+            <span class="plant-type">Seasonal, Ready-Made</span>
+            <span class="plant-name">Mixed Hanging Basket</span>
+            <span class="plant-latin">Mixed bedding varieties</span>
+            <div class="plant-meta">
+              <span class="plant-size">12&Prime; basket</span>
+              <span class="plant-price">&pound;18.00</span>
+            </div>
+            <button class="plant-enquire" data-plant="Mixed Hanging Basket (12&quot; basket, £18.00)">Enquire</button>
+          </div>
+        </article>
+
+        <article class="plant-card">
+          <div class="plant-art">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+              <path d="M50 90 L50 50" stroke="#3E6B3A" stroke-width="3" stroke-linecap="round"/>
+              <circle cx="50" cy="34" r="10" fill="#B87A19"/>
+              <circle cx="34" cy="42" r="9" fill="#C98A2C"/>
+              <circle cx="66" cy="42" r="9" fill="#C98A2C"/>
+              <circle cx="38" cy="58" r="9" fill="#B87A19"/>
+              <circle cx="62" cy="58" r="9" fill="#B87A19"/>
+              <circle cx="50" cy="50" r="7" fill="#F6D77A"/>
+            </svg>
+          </div>
+          <div class="plant-body">
+            <span class="plant-type">Bedding</span>
+            <span class="plant-name">Geranium, Horizon Red</span>
+            <span class="plant-latin">Pelargonium</span>
+            <div class="plant-meta">
+              <span class="plant-size">9cm pot</span>
+              <span class="plant-price">&pound;3.00</span>
+            </div>
+            <button class="plant-enquire" data-plant="Geranium, Horizon Red (9cm pot, £3.00)">Enquire</button>
+          </div>
+        </article>
+
+        <article class="plant-card">
+          <div class="plant-art">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+              <path d="M50 88 L50 46" stroke="#5B4632" stroke-width="3" stroke-linecap="round"/>
+              <path d="M50 50 C30 46 22 30 26 16 C38 22 46 34 50 50Z" fill="#8A6FB0"/>
+              <path d="M50 50 C70 46 78 30 74 16 C62 22 54 34 50 50Z" fill="#C15C7A"/>
+              <path d="M50 46 C34 42 28 28 30 18 C40 24 46 34 50 46Z" fill="#8A6FB0" opacity="0.6"/>
+            </svg>
+          </div>
+          <div class="plant-body">
+            <span class="plant-type">Bedding, Trailing</span>
+            <span class="plant-name">Petunia, Trailing Mix</span>
+            <span class="plant-latin">Petunia hybrida</span>
+            <div class="plant-meta">
+              <span class="plant-size">6-pack</span>
+              <span class="plant-price">&pound;2.75</span>
+            </div>
+            <button class="plant-enquire" data-plant="Petunia, Trailing Mix (6-pack, £2.75)">Enquire</button>
+          </div>
+        </article>
+
+        <article class="plant-card">
+          <div class="plant-art">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+              <path d="M50 90 L50 40" stroke="#3E6B3A" stroke-width="3" stroke-linecap="round"/>
+              <path d="M50 40 C40 30 40 20 50 12 C60 20 60 30 50 40Z" fill="#82BA6E"/>
+              <ellipse cx="50" cy="26" rx="7" ry="14" fill="#3E6B3A"/>
+              <path d="M50 60 L34 52 M50 60 L66 52 M50 74 L36 68 M50 74 L64 68" stroke="#3E6B3A" stroke-width="3" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="plant-body">
+            <span class="plant-type">Bedding</span>
+            <span class="plant-name">Busy Lizzie</span>
+            <span class="plant-latin">Impatiens walleriana</span>
+            <div class="plant-meta">
+              <span class="plant-size">6-pack</span>
+              <span class="plant-price">&pound;2.50</span>
+            </div>
+            <button class="plant-enquire" data-plant="Busy Lizzie (6-pack, £2.50)">Enquire</button>
+          </div>
+        </article>
+
+        <article class="plant-card">
+          <div class="plant-art">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+              <path d="M50 90 L50 44" stroke="#3E6B3A" stroke-width="2.5" stroke-linecap="round"/>
+              <path d="M50 60 C40 52 40 42 50 34 C60 42 60 52 50 60Z" fill="#C15C7A"/>
+              <path d="M50 74 C42 68 42 60 50 54 C58 60 58 68 50 74Z" fill="#8A6FB0"/>
+              <path d="M50 44 C46 46 44 48 44 50" stroke="#3E6B3A" stroke-width="2" opacity="0.5"/>
+            </svg>
+          </div>
+          <div class="plant-body">
+            <span class="plant-type">Perennial</span>
+            <span class="plant-name">Lupin, Gallery Mix</span>
+            <span class="plant-latin">Lupinus polyphyllus</span>
+            <div class="plant-meta">
+              <span class="plant-size">2L pot</span>
+              <span class="plant-price">&pound;5.50</span>
+            </div>
+            <button class="plant-enquire" data-plant="Lupin, Gallery Mix (2L pot, £5.50)">Enquire</button>
+          </div>
+        </article>
+
+        <article class="plant-card">
+          <div class="plant-art">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+              <path d="M50 88 C50 88 20 78 22 52 C24 30 50 34 50 34 C50 34 76 30 78 52 C80 78 50 88 50 88Z" fill="#3E6B3A"/>
+              <path d="M50 34 C50 50 50 70 50 88" stroke="#20381C" stroke-width="2" opacity="0.5"/>
+              <path d="M30 50 C38 60 42 72 50 82 M70 50 C62 60 58 72 50 82" stroke="#20381C" stroke-width="1.5" opacity="0.4"/>
+            </svg>
+          </div>
+          <div class="plant-body">
+            <span class="plant-type">Perennial, Ground Cover</span>
+            <span class="plant-name">Hardy Geranium, Rozanne</span>
+            <span class="plant-latin">Geranium 'Rozanne'</span>
+            <div class="plant-meta">
+              <span class="plant-size">2L pot</span>
+              <span class="plant-price">&pound;6.50</span>
+            </div>
+            <button class="plant-enquire" data-plant="Hardy Geranium, Rozanne (2L pot, £6.50)">Enquire</button>
+          </div>
+        </article>
+
+        <article class="plant-card">
+          <div class="plant-art">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+              <ellipse cx="50" cy="70" rx="30" ry="8" fill="#3E6B3A" opacity="0.7"/>
+              <ellipse cx="50" cy="58" rx="24" ry="7" fill="#82BA6E" opacity="0.8"/>
+              <ellipse cx="50" cy="46" rx="17" ry="6" fill="#C98A2C"/>
+              <path d="M50 90 L50 76" stroke="#3E6B3A" stroke-width="3" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="plant-body">
+            <span class="plant-type">Perennial</span>
+            <span class="plant-name">Sedum, Autumn Joy</span>
+            <span class="plant-latin">Hylotelephium</span>
+            <div class="plant-meta">
+              <span class="plant-size">1.5L pot</span>
+              <span class="plant-price">&pound;5.00</span>
+            </div>
+            <button class="plant-enquire" data-plant="Sedum, Autumn Joy (1.5L pot, £5.00)">Enquire</button>
+          </div>
+        </article>
+
+        <article class="plant-card">
+          <div class="plant-art">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+              <path d="M50 90 L50 50" stroke="#3E6B3A" stroke-width="3" stroke-linecap="round"/>
+              <ellipse cx="50" cy="34" rx="16" ry="20" fill="#3E6B3A"/>
+              <ellipse cx="34" cy="46" rx="10" ry="14" fill="#82BA6E"/>
+              <ellipse cx="66" cy="46" rx="10" ry="14" fill="#82BA6E"/>
+            </svg>
+          </div>
+          <div class="plant-body">
+            <span class="plant-type">Perennial, Shade</span>
+            <span class="plant-name">Hosta, Frances Williams</span>
+            <span class="plant-latin">Hosta sieboldiana</span>
+            <div class="plant-meta">
+              <span class="plant-size">2L pot</span>
+              <span class="plant-price">&pound;8.50</span>
+            </div>
+            <button class="plant-enquire" data-plant="Hosta, Frances Williams (2L pot, £8.50)">Enquire</button>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="delivery" id="delivery">
+    <div class="wrap">
+      <div class="section-head" style="margin-bottom:0;">
+        <div>
+          <span class="eyebrow">Getting Plants Home</span>
+          <h2 style="margin-top:10px;">Delivery &amp; Collection</h2>
+        </div>
+        <p>We deliver locally around Rednal ourselves, so your plants go straight from our tables to your door.</p>
+      </div>
+      <div class="delivery-grid">
+        <div class="delivery-card">
+          <h3>Free Local Delivery</h3>
+          <div class="amount">&pound;10+</div>
+          <p>Any order of &pound;10 or more qualifies for free delivery around Rednal and the surrounding area.</p>
+        </div>
+        <div class="delivery-card">
+          <h3>Collection</h3>
+          <div class="amount">Free</div>
+          <p>Prefer to collect? Message us on Facebook or give us a call and we'll have your order ready to go.</p>
+        </div>
+      </div>
+      <div class="delivery-note">
+        <span>&#9873;</span>
+        <span>Not sure if you're in our delivery area, or after something specific? Send us a message before you order and we'll let you know.</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">Ask Us Anything</span>
+          <h2 style="margin-top:10px;">Get In Touch</h2>
+        </div>
+        <p>Stock changes by the week — if you're after something specific, send a message and we'll tell you what's ready.</p>
+      </div>
+
+      <div class="contact-grid">
+        <form id="enquiry-form">
+          <div class="field">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" placeholder="Your full name" required>
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="you@example.com" required>
+          </div>
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Tell us what you're looking for, and when you'd like it." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-line">Send Enquiry</button>
+          <p class="form-note" id="form-note"></p>
+        </form>
+
+        <div class="contact-side">
+          <div class="contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 5h4l2 5-2.5 1.5a11 11 0 0 0 5 5L14 14l5 2v4a2 2 0 0 1-2 2C9.6 22 2 14.4 2 7a2 2 0 0 1 2-2Z"/></svg>
+            <div><b>07767 476371</b><span>Call or text</span></div>
+          </div>
+          <div class="contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 6h18v12H3z"/><path d="m3 7 9 6 9-6"/></svg>
+            <div><b>andystatton@aol.com</b><span>We reply when we can</span></div>
+          </div>
+          <div class="contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s7-6.1 7-12a7 7 0 0 0-14 0c0 5.9 7 12 7 12Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+            <div><b>Rednal, Birmingham</b><span>Local delivery to the surrounding area</span></div>
+          </div>
+          <div class="contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            <div><b>Opening hours</b><span>Message us on Facebook for current hours</span></div>
+          </div>
+
+          <div class="social-row">
+            <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M15 8h-2a2 2 0 0 0-2 2v10M8 13h5"/><path d="M15 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h9"/></svg></a>
+            <a href="#" aria-label="Messenger"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2C6.5 2 2 6.2 2 11.4c0 3 1.5 5.6 3.9 7.3V22l3.6-2c1 .3 2 .4 3.1.4 5.5 0 10-4.2 10-9.4S17.5 2 12 2Z"/><path d="m7 14 3.6-3.8L13.4 13 17 9.2"/></svg></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot-grid">
+    <div class="foot-brand">
+      <span class="brand-name">Andy's Plants</span>
+      <p>Family-grown bedding plants and perennials in Rednal, Birmingham. Everything we sell, we grow ourselves.</p>
+    </div>
+    <div>
+      <h4>Explore</h4>
+      <ul class="navlinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#plants">Our Plants</a></li>
+        <li><a href="#delivery">Delivery</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <ul class="navlinks">
+        <li>Rednal, Birmingham</li>
+        <li>07767 476371</li>
+        <li>andystatton@aol.com</li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bottom">
+    <span>&copy; 2026 Andy's Plants. All rights reserved.</span>
+    <span>Free delivery on orders of &pound;10 and over.</span>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var form = document.getElementById('enquiry-form');
+    var note = document.getElementById('form-note');
+    var msg = document.getElementById('message');
+
+    document.querySelectorAll('.plant-enquire').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        var plant = btn.getAttribute('data-plant');
+        msg.value = "Hi, I'd like to ask about: " + plant + ". ";
+        document.getElementById('contact').scrollIntoView({behavior:'smooth'});
+        window.setTimeout(function(){ msg.focus(); }, 400);
+      });
+    });
+
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      note.textContent = "Thanks — this is a demo form, so nothing was actually sent, but a live version would email your enquiry straight through.";
+      form.reset();
+    });
+  })();
+</script>
+</body>
+</html>
